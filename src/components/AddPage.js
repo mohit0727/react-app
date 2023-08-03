@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios';
 import { TextField, FormControl, Select, InputLabel, MenuItem, Button } from '@mui/material';
-import {toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const baseUrl = 'http://localhost:3000';
 export default function AddPage() {
@@ -86,15 +84,7 @@ export default function AddPage() {
             };
             // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint URL.
             const response = await axios.post(`${baseUrl}/api/travel-plan`, formData);
-            toast.success('Response Submitted', {
-                position: 'top-right',
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              })
+            window.location.reload()
         } catch (error) {
         // Handle error if the API call fails.
         console.error('API Error:', error);
